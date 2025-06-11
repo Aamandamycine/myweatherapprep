@@ -4,9 +4,8 @@ body {
 
 .weather-app {
   background: white;
-  .roboto-<uniquifier > {
-    font-family: "Roboto", sans-serif;
-  
+
+  font-family: "Roboto", sans-serif;
 
   max-width: 600px;
   margin: 45px auto;
