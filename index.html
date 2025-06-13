@@ -15,11 +15,12 @@
   <body>
     <div class="weather-app">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city..."
             required
+            id="search-form-input"
             class="search-form-input"
           />
           <input type="submit" value="search" class="search-form-button" />
@@ -27,19 +28,23 @@
       </header>
       <main>
         <div class="weather-app-data">
-          <h1 class="weather-app-city">Paris</h1>
-          <p class="weather-app-details">
-            Tuesday 14:49, scattered clouds
-            <br />
-            Humidity:<strong>66%</strong>, Wind:3.13km/h
-          </p>
-        </div>
-        <div class="weather-app-temperature-container">
-          <div class="weather-app-icon">⛅</div>
-          <div class="weather-app-temperature">12</div>
-          <div class="weather-app-unit">°C</div>
+          <div>
+            <h1 class="weather-app-city" id="city">Paris</h1>
+            <p class="weather-app-details">
+              Tuesday 14:49, scattered clouds
+              <br />
+              Humidity:<strong>66%</strong>, Wind:3.13km/h
+            </p>
+          </div>
+
+          <div class="weather-app-temperature-container">
+            <div class="weather-app-icon">⛅</div>
+            <div class="weather-app-temperature">12</div>
+            <div class="weather-app-unit">°C</div>
+          </div>
         </div>
       </main>
+
       <footer>
         Coded with ❤️ by
         <a href="https://github.com/Aamandamycine/" target="_blank">
@@ -57,6 +62,7 @@
           Netlify
         </a>
       </footer>
+      <script src="src/app.js"></script>
     </div>
   </body>
 </html>
