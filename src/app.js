@@ -2,6 +2,21 @@ function refreshWeather(response) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  let descriptionElement = document.querySelector("#description");
+  let description = response.data.condition.description;
+  descriptionElement.innerHTML = description;
+
+  let humidityElement = document.querySelector("#Humidity");
+
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  let windElement = document.querySelector("#Wind");
+  let wind = response.data.wind.speed;
+  windElement.innerHTML = `${Math.round(wind)} km/h`;
+  let iconElement = document.querySelector("#icon");
+  let iconUrl = response.data.condition.icon_url;
+  iconElement.setAttribute("src", iconUrl);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 function searchCity(city) {
