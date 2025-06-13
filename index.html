@@ -4,14 +4,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <title>rohaansweatherproject</title>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="weather-app">
@@ -29,41 +28,29 @@
       </header>
       <main>
         <div class="weather-app-data">
-          <div>
-            <h1 class="weather-app-city" id="city">Paris</h1>
-            <p class="weather-app-details">
-              Tuesday 14:49, scattered clouds
-              <br />
-              Humidity:<strong>66%</strong>, Wind:3.13km/h
-            </p>
-          </div>
-
-          <div class="weather-app-temperature-container">
-            <div class="weather-app-icon">⛅</div>
-            <div class="weather-app-temperature">12</div>
-            <div class="weather-app-unit">°C</div>
-          </div>
+          <h1 class="weather-app-city" id="city">Paris</h1>
+          <p class="weather-app-details">
+            Tuesday 14:49, scattered clouds
+            <br />
+            Humidity: <strong id="humidity">66%</strong>, Wind:
+            <strong id="wind">3 km/h</strong>
+          </p>
+        </div>
+        <div class="weather-app-temperature-container">
+          <div class="weather-app-icon" id="icon">⛅</div>
+          <div class="weather-app-temperature" id="temperature">12</div>
+          <div class="weather-app-unit">°C</div>
         </div>
       </main>
-
       <footer>
         Coded with ❤️ by
         <a href="https://github.com/Aamandamycine/" target="_blank">
           Amanda Ntumba Kapinga
         </a>
-        is open-sourced on
-        <a
-          href="https://github.com/Aamandamycine/myweatherapprep/"
-          target="_blank"
-        >
-          Github
-        </a>
-        and website hosted on
-        <a href="https://rohaansweatherproject.netlify.app/" target="_blank">
-          Netlify
-        </a>
       </footer>
-      <script src="src/app.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="app.js"></script>
     </div>
   </body>
 </html>
