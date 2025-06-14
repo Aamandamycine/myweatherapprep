@@ -64,3 +64,4 @@ function handleSearchSubmit(event) {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 searchCity("Paris");
+let apiKey = process.env.REACT_APP_API_KEY;
