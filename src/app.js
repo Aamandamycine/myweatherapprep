@@ -22,12 +22,11 @@ function refreshWeather(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time);
 
-  // ✅ Get forecast after weather is loaded
   getForecast(response.data.city);
 }
 
 function formatDate(timestamp) {
-  let date = new Date(timestamp * 1000); // API gives timestamp in seconds
+  let date = new Date(timestamp * 1000);
   let days = [
     "Sunday",
     "Monday",
@@ -63,6 +62,11 @@ function handleSearchSubmit(event) {
 
   searchCity(searchInput.value);
 }
+function formatDay(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 
 function getForecast(city) {
   let apiKey = "3dea2t99ce0052e3130d4f28b3eb9cof";
@@ -77,19 +81,29 @@ function displayForecast(response) {
 
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      ` <div class="weather-forecast-day">
-              <div class="weather-forecast-date">${day}</div>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        ` <div class="weather-forecast-day">
+              <div class="weather-forecast-date">${formatDay(
+                day.time * 1000
+              )}</div>
+
               <div class="weather-forecast-icon">⛅</div>
+              <img src="${
+                day.condition.icon_url
+              }" class="weather-forecast-icon"/>
               <div class="weather-forecast-temperatures">
                 <div class="weather-forecast-temperature">
-                  <strong>15°</strong>
+                  <strong>${Math.round(day.temperature.maximum)}°</strong>
                 </div>
-                <div class="weather-forecast-temperature">9°</div>
+                <div class="weather-forecast-temperature">${Math.round(
+                  day.temperature.minimum
+                )}°</div>
               </div>
             </div>`;
+    }
   });
 
   forecast.innerHTML = forecastHtml;
